@@ -1,4 +1,5 @@
 ﻿var textPR = document.getElementById('textPR');
+var textRR = document.getElementById('textRR');
 var sendCal = document.getElementById('js-send-calTrigger');
 
 var heartRateData;                // 0. Heart rate data

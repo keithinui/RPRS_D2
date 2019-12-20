@@ -88,6 +88,7 @@ var youJoyned = 0;
         // Show PR and Battery level data sent from the remort
         if (data.length < 20){
           textPR.innerHTML             = data[0]+data[1]+data[2];
+          textRR.innerHTML             = data[4]+data[5]+data[6];
           statusSpo2.innerHTML         = data[6]+data[7]+data[8];
           statusBatteryLavel.innerHTML = data[9]+data[10]+data[11];
         }else{
