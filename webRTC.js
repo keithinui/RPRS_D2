@@ -88,7 +88,7 @@ var youJoyned = 0;
         // Show PR and Battery level data sent from the remort
         
         var dv = new DataView(data);
-        console.log("data=" + dv.getUint8(0) + dv.getUint8(1) + dv.getUint8(2) + dv.getUint8(3) + dv.getUint8(4) + dv.getUint8(5) + dv.getUint8(6) + dv.getUint8(7) );
+        console.log("data=" + dv.getUint16(0) + dv.getUint16(1) + dv.getUint16(2) + dv.getUint16(3) );
 
         if (data.length < 20){
           textPR.innerHTML             = data[0]+data[1]+data[2];
