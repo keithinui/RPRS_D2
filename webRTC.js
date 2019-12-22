@@ -87,7 +87,8 @@ var youJoyned = 0;
         // Doctor mode *********************************************
         // Show PR and Battery level data sent from the remort
         
-        console.log("data=" + data[0]);
+        var dv = new DataView(data);
+        console.log("data=" + dv.getUint8(0));
 
         if (data.length < 20){
           textPR.innerHTML             = data[0]+data[1]+data[2];
