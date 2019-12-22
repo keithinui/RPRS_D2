@@ -83,18 +83,15 @@ var youJoyned = 0;
     });
 
     room.on('data', ({ data, src }) => {
+      let dv = new DataView(data);
       if(applicationMode ==1){
         // Doctor mode *********************************************
         // Show PR and Battery level data sent from the remort
-        
-        var dv = new DataView(data);
-        console.log("data= " + dv.getUint16(0) +" "+ dv.getUint16(2) +" "+ dv.getUint16(4) +" "+ dv.getUint16(6) +" "+ dv.getUint16(8) );
-
-        if (data.length < 20){
-          textPR.innerHTML             = data[0]+data[1]+data[2];
-          textRR.innerHTML             = data[4]+data[5]+data[6];
-          statusSpo2.innerHTML         = data[6]+data[7]+data[8];
-          statusBatteryLavel.innerHTML = data[9]+data[10]+data[11];
+        if (dv.byteLength < 20){
+          textPR.innerHTML             = dv.getUint16(0);
+          textRR.innerHTML             = dv.getUint16(2);
+          statusSpo2.innerHTML         = dv.getUint16(4);
+          statusBatteryLavel.innerHTML = dv.getUint16(6);
         }else{
           // Show waveform data
           displayWaveforms(data);
