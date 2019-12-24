@@ -163,8 +163,8 @@ var youJoyned = 0;
       // Send sendWaveform request
       let buffer = new ArrayBuffer(5);
       let tmpData = new Uint8Array(buffer);
-      tmpData[0] = sendWaveforms;
-      tmpData[1] = 0;  // Reserved
+      tmpData[0] = 0x11;  //sendWaveforms;
+      tmpData[1] = 0x22;  // Reserved
       tmpData[2] = 0;  // Reserved
       tmpData[3] = 0;  // Reserved
       tmpData[4] = 0;  // Reserved
