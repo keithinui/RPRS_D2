@@ -87,7 +87,7 @@ var youJoyned = 0;
       if(applicationMode ==1){
         // Doctor mode *********************************************
         // Show PR and Battery level data sent from the remort
-        if (rDara.length < 20){
+        if (rData.length < 20){
           textPR.innerHTML             = rData[0];
           textRR.innerHTML             = rData[1];
           statusSpo2.innerHTML         = rData[2];
