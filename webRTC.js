@@ -161,12 +161,12 @@ var youJoyned = 0;
       }
 
       // Send sendWaveform request
-      let tmpData = [];
-      tmpData[0] = "Test"; //sendWaveforms;
-      tmpData[1] = "";  // Reserved
-      tmpData[2] = "";  // Reserved
-      tmpData[3] = "";  // Reserved
-      tmpData[4] = "";  // Reserved
+      let tmpData = "Test";
+      //tmpData[0] = "Test"; //sendWaveforms;
+      //tmpData[1] = "";  // Reserved
+      //tmpData[2] = "";  // Reserved
+      //tmpData[3] = "";  // Reserved
+      //tmpData[4] = "";  // Reserved
       room.send(tmpData);
     }
 
