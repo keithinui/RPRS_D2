@@ -162,11 +162,11 @@ var youJoyned = 0;
 
       // Send sendWaveform request
       let tmpData = [];;
-      tmpData[0] = sendWaveforms;
-      tmpData[1] = 0;  // Reserved
-      tmpData[2] = 0;  // Reserved
-      tmpData[3] = 0;  // Reserved
-      tmpData[4] = 0;  // Reserved
+      tmpData[0] = "Test"; //sendWaveforms;
+      tmpData[1] = "";  // Reserved
+      tmpData[2] = "";  // Reserved
+      tmpData[3] = "";  // Reserved
+      tmpData[4] = "";  // Reserved
       room.send(tmpData);
     }
 
