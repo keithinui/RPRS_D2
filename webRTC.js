@@ -161,12 +161,13 @@ var youJoyned = 0;
       }
 
       // Send sendWaveform request
-      let tmpData = "Test";
-      //tmpData[0] = "Test"; //sendWaveforms;
-      //tmpData[1] = "";  // Reserved
-      //tmpData[2] = "";  // Reserved
-      //tmpData[3] = "";  // Reserved
-      //tmpData[4] = "";  // Reserved
+      let buffer = new ArrayBuffer(5);
+      let tmpData = new Int8Array(buffer);
+      tmpData[0] = 0x11; //sendWaveforms;
+      tmpData[1] = 0x22;  // Reserved
+      tmpData[2] = 0;  // Reserved
+      tmpData[3] = 0;  // Reserved
+      tmpData[4] = 0;  // Reserved
       room.send(tmpData);
     }
 
