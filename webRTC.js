@@ -161,7 +161,7 @@ var youJoyned = 0;
       }
 
       // Send sendWaveform request
-      let tmpData = [];;
+      let tmpData = [];
       tmpData[0] = "Test"; //sendWaveforms;
       tmpData[1] = "";  // Reserved
       tmpData[2] = "";  // Reserved
