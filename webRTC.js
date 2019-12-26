@@ -171,7 +171,7 @@ var youJoyned = 0;
 //      room.send(Array.from(tmpData));
 
       
-      room.send(String.fromCharCode(65));
+      room.send(String.fromCharCode(65) + String.fromCharCode(0) + String.fromCharCode(1) + String.fromCharCode(0xFF));
       
     }
 
