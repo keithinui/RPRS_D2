@@ -84,7 +84,7 @@ var youJoyned = 0;
 
     room.on('data', ({ data, src }) => {
       let rData = new Int16Array(data);
-      if (rData.length < 20){
+      if (rData.length == 20){
         textPR.innerHTML             = rData[0];
         textRR.innerHTML             = rData[1];
         statusSpo2.innerHTML         = rData[2];
