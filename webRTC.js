@@ -161,8 +161,8 @@ var youJoyned = 0;
       }
 
       // Send sendWaveform request
-      let buffer = new ArrayBuffer(5);
-      let tmpData = new Int8Array(buffer);
+      let buffer = new ArrayBuffer(10);
+      let tmpData = new Int16Array(buffer);
       tmpData[0] = 0x11; //sendWaveforms;
       tmpData[1] = 0x22;  // Reserved
       tmpData[2] = 0;  // Reserved
