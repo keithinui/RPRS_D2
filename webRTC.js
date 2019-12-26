@@ -168,7 +168,7 @@ var youJoyned = 0;
       tmpData[2] = 0;  // Reserved
       tmpData[3] = 0;  // Reserved
       tmpData[4] = 0;  // Reserved
-      room.send(tmpData);
+      room.send(Array.from(tmpData));
     }
 
 
