@@ -6,58 +6,11 @@ var heartRateData;                // 0. Heart rate data
 var respRateData;                 // 1. Resp. rate data
 var spo2 = 99;                    // 2. SpO" data
 var batteryLevel;                 // 3. Battery Level
-var dataSendParameters = [];      // Parameter Data to send
 var dataSendWaveforms = [[]];     // Waveform Data to send (8ch x DataCount[ms])
 var timer1 =0;                    // Interval timer
-var connectedBLE = 0;             // 0: BLE not connected,       1: BLE connected
 var sendWaveforms = 0;            // 0: Send waveforms Off,      1: On
-var applicationMode;              // 0: Patient mode,            1: Doctor mode
 var calCommand = 0;               // 0: Cal Off,                 1: On
 
-textPR.addEventListener('click', function() {
-  textPR.textContent = '..';
-  heartRates = [];
-  heartRateSensor.connect()
-  .then(() => heartRateSensor.startNotificationsHeartRateMeasurement().then(handleHeartRateMeasurement))
-  .catch(error => {
-    const messages = document.getElementById('js-messages');
-    messages.textContent = error;
-  });
-});
-
-
-
-// ********************************************************************
-//  Send parameters when data acquired via Web Bluetooth
-// ********************************************************************
-function handleHeartRateMeasurement(heartRateMeasurement) {
-  heartRateMeasurement.addEventListener('characteristicvaluechanged', event => {
-    var heartRateMeasurement = heartRateSensor.parseHeartRate(event.target.value);
-    
-    // Set parameters (Heart rate and Battery Level) to the local side
-    heartRateData = heartRateMeasurement.heartRate;
-    textPR.innerHTML = heartRateData;
-
-    heartRateSensor.getBatteryLevel();
-    statusBatteryLavel.textContent = batteryLevel;
-    
-    statusSpo2.textContent = spo2;
-
-    // Send array data to the remote side
-    dataSendParameters[0] = heartRateData;
-    dataSendParameters[1] = 0; // Reserved
-    dataSendParameters[2] = spo2;
-    dataSendParameters[3] = batteryLevel;
-    dataSendParameters[4] = 0; // Reserved
-
-    if(peer.open){
-      room.send(dataSendParameters);
-    }
-    
-    // BLE Connected
-    connectedBLE = 1;
-  });
-}
 
 // ********************************************************************
 //  Send ECG Data by each interval time
@@ -84,15 +37,6 @@ function transmitData() {
     spo2 = spo2 >= 99 ? 80 : spo2 + 1;
   }
 }
-
-// ********************************************************************
-//  Send Cal
-// ********************************************************************
-function onCalSend() {
-  calCommand = 1;
-  console.log("onCalSend event!");
-}
-
 
 // ********************************************************************
 //  Initial setup
