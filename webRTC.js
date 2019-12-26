@@ -161,14 +161,17 @@ var youJoyned = 0;
       }
 
       // Send sendWaveform request
-      let buffer = new ArrayBuffer(10);
-      let tmpData = new Int16Array(buffer);
-      tmpData[0] = 0x11; //sendWaveforms;
-      tmpData[1] = 0x22;  // Reserved
-      tmpData[2] = 0;  // Reserved
-      tmpData[3] = 0;  // Reserved
-      tmpData[4] = 0;  // Reserved
-      room.send(Array.from(tmpData));
+//      let buffer = new ArrayBuffer(10);
+//      let tmpData = new Int16Array(buffer);
+//      tmpData[0] = 0x11; //sendWaveforms;
+//      tmpData[1] = 0x22;  // Reserved
+//      tmpData[2] = 0;  // Reserved
+//      tmpData[3] = 0;  // Reserved
+//      tmpData[4] = 0;  // Reserved
+//      room.send(Array.from(tmpData));
+
+      room.send(55);
+      
     }
 
 
