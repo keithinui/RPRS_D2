@@ -84,33 +84,14 @@ var youJoyned = 0;
 
     room.on('data', ({ data, src }) => {
       let rData = new Int16Array(data);
-      if(applicationMode ==1){
-        // Doctor mode *********************************************
-        // Show PR and Battery level data sent from the remort
-        if (rData.length < 20){
-          textPR.innerHTML             = rData[0];
-          textRR.innerHTML             = rData[1];
-          statusSpo2.innerHTML         = rData[2];
-          statusBatteryLavel.innerHTML = rData[3];
-        }else{
-          // Show waveform data
-          displayWaveforms(data);
-        }
-
+      if (rData.length < 20){
+        textPR.innerHTML             = rData[0];
+        textRR.innerHTML             = rData[1];
+        statusSpo2.innerHTML         = rData[2];
+        statusBatteryLavel.innerHTML = rData[3];
       }else{
-        // Patient mode ********************************************
-        // if ECG waveforms requested, start timer to send
-        // and show CAL button and make its event
-        console.log("Data sent in patient mode!: Data = " + data[0]);
-
-        if(data[0]){
-          timer1 = setInterval("transmitData()", DataCount);
-          sendCal.style.display = "block";
-          sendCal.addEventListener('click', onCalSend);
-        }else{
-          clearInterval(timer1);
-          sendCal.style.display = "none";
-        }
+        // Show waveform data
+        displayWaveforms(data);
       }
     });
 
@@ -138,9 +119,7 @@ var youJoyned = 0;
       });
     });
 
-    if(applicationMode == 1){
-      sendTrigger.addEventListener('click', onClickSend);
-    }
+    sendTrigger.addEventListener('click', onClickSend);
     leaveTrigger.addEventListener('click', () => room.close(), { once: true });
 
     function onClickSend() {
@@ -163,9 +142,7 @@ var youJoyned = 0;
       // Send sendWaveform request
       let tmpData = "waveform" + String(sendWaveforms);
       room.send(tmpData);
-      
     }
-
 
   });
 
