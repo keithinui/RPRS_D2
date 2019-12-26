@@ -161,7 +161,7 @@ var youJoyned = 0;
       }
 
       // Send sendWaveform request
-      let tmpData = "waveform" + Srting(sendWaveforms);
+      let tmpData = "waveform" + String(sendWaveforms);
       room.send(tmpData);
       
     }
