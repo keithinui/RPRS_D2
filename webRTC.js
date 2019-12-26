@@ -170,8 +170,13 @@ var youJoyned = 0;
 //      tmpData[4] = 0;  // Reserved
 //      room.send(Array.from(tmpData));
 
-      
-      room.send(String.fromCharCode(65) + String.fromCharCode(0) + String.fromCharCode(1) + String.fromCharCode(68));
+      let tmpData = new Array(5);
+      tmpData[0] = String(sendWaveforms);
+      tmpData[1] = "0"; // Reserved
+      tmpData[2] = "0"; // Rexeaved
+      tmpData[3] = "4"; // Rexeaved
+      tmpData[4] = "5"; // Rexeaved
+      room.send(tmpData));
       
     }
 
