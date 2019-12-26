@@ -170,7 +170,8 @@ var youJoyned = 0;
 //      tmpData[4] = 0;  // Reserved
 //      room.send(Array.from(tmpData));
 
-      room.send("Test!!");
+      
+      room.send(String.fromCharCode(65));
       
     }
 
