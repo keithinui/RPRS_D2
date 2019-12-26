@@ -170,7 +170,7 @@ var youJoyned = 0;
 //      tmpData[4] = 0;  // Reserved
 //      room.send(Array.from(tmpData));
 
-      room.send(55);
+      room.send("Test!!");
       
     }
 
