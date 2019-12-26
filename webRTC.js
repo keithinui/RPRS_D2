@@ -161,12 +161,7 @@ var youJoyned = 0;
       }
 
       // Send sendWaveform request
-      let tmpData = new Array(5);
-      tmpData[0] = String(sendWaveforms);
-      tmpData[1] = "0"; // Reserved
-      tmpData[2] = "0"; // Rexeaved
-      tmpData[3] = "4"; // Rexeaved
-      tmpData[4] = "5"; // Rexeaved
+      let tmpData = "waveform" + Srting(sendWaveforms);
       room.send(tmpData);
       
     }
