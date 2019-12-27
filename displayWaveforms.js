@@ -53,7 +53,7 @@
                     if(instTimer>0){
                         Vnew[q] = 0;			// Inst data
                     }else{
-                        Vnew[q] = gain * data[m][q] / 40;
+                        Vnew[q] = gain * data[m][q] / 80;
                     }
                 }
 
