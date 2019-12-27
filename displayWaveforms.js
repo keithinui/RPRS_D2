@@ -92,7 +92,6 @@
                         m_workDC.lineCap = "round";
                         m_workDC.lineJoin = "round";
                         m_workDC.lineWidth = 2.0;
-                        m_workDC.strokeStyle = "rgb(" + String(color[q][0]) + "," + String(color[q][1]) + "," + String(color[q][2]) + ")";
                         m_workDC.strokeStyle = "rgb(0, 176, 240)";
                         m_workDC.stroke();
                     }
