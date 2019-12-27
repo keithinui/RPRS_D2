@@ -43,8 +43,8 @@ function transmitData() {
 // ********************************************************************
 window.onload = function () {
   // Make position offset for each waveform
-  for (var k = 0; k < 12; ++k) {
-    Voffset[k] = (k + 1) * (oy / (6 + 0.5));
+  for (var k = 0; k < ch; ++k) {
+    Voffset[k] = (k + 1) * (oy / (ch + 1));
   }
 
   // Make canvas and get its size
@@ -54,12 +54,12 @@ window.onload = function () {
   cvs.setAttribute("height", oy * displayResolution);
   m_workDC.scale(displayResolution, displayResolution);
 
-  m_workDC.fillStyle = "#00FF00";
+  m_workDC.fillStyle = "#FFFFFF";
   m_workDC.font = "20px Verdana";
   m_workDC.textAlign = "left";
   m_workDC.textBaseline = "top";
 
-  WaveStepsPerDot = (ox - stdW) / Sweep;	            // Number of count up step per sample
+  WaveStep = (ox - stdW) / Sweep;	            // Number of count up step per sample
 
 
   // Hide Send ECG Waveform Button in patient mode
