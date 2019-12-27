@@ -9,7 +9,7 @@
 
         var yLast = [15],xLast = [15];	    // Last draw point data
         var Voffset = [15];
-        var ox = 800, oy = 200;
+        var ox = 1050, oy = 200;            // Recomandation of ox (800, 925, 1050, 1175)   ox = WaveStep * Sweep +stdW
         var stdW = 50;
         var Xpoint = stdW;
         var WaveSteps = stdW;
@@ -68,9 +68,9 @@
                 m_workDC.clearRect(i , 0, WaveStep, oy);  // Left area
 
                 // Draw time maker
-                q = (ox -stdW) / (Sweep / FS);            // 1s point onf canvas
+                q = Math.round((ox -stdW) / (Sweep / FS) * dSpeed);  // 1s point onf canvas
                 for (i = xLast[0]; i < Xpoint; i++){
-                    if((i - stdW) % q == 0){
+                    if((Math.round(i) - stdW) % q == 0){
                         m_workDC.beginPath();
                         m_workDC.moveTo(i, oy - 10);
                         m_workDC.lineTo(i, oy     );
