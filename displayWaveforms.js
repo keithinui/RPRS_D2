@@ -9,7 +9,7 @@
 
         var yLast = [15],xLast = [15];	    // Last draw point data
         var Voffset = [15];
-        var ox = 1050, oy = 200;            // Recomandation of ox (800, 925, 1050, 1175)   ox = WaveStep * Sweep +stdW
+        var ox = 1050, oy = 200;            // Recomandation of ox (800, 925, 1050, 1175, 1300)   ox = WaveStep * Sweep +stdW
         var stdW = 50;
         var Xpoint = stdW;
         var WaveSteps = stdW;
