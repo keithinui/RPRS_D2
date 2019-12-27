@@ -9,7 +9,7 @@
 
         var yLast = [15],xLast = [15];	    // Last draw point data
         var Voffset = [15];
-        var ox = 800, oy = 100;
+        var ox = 800, oy = 200;
         var stdW = 50;
         var Xpoint = stdW;
         var WaveSteps = stdW;
