@@ -32,7 +32,7 @@
         //***************************************************************************
         // Draw waveforms
         //***************************************************************************
-        function displayWaveforms() {
+        function displayWaveforms(data) {
 
             for (let m = 0; m < DataCount; ++m) {
 
@@ -52,7 +52,7 @@
                     if(instTimer>0){
                         Vnew[q] = 0;			// Inst data
                     }else{
-                        Vnew[q] = gain * ecgData[NowPoint][q] / 40;
+                        Vnew[q] = gain * data[m][q] / 40;
                     }
                 }
 
