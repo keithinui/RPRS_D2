@@ -97,7 +97,7 @@ var youJoyned = 0;
         let buffer1 = new ArrayBuffer(4);
         let rData = [new Int16Array(buffer0), new Int16Array(buffer1)];
         
-        let rData = data.slice(0, data.length);
+        rData = data.slice(0, data.length);
         
         console.log("rData= " + rData[0][0] + " "  + rData[0][1] + " " + rData[1][0] + " " + rData[1][1]); 
         
