@@ -95,15 +95,12 @@ var youJoyned = 0;
         // Waveform data
         let buffer0 = new ArrayBuffer(4);
         let buffer1 = new ArrayBuffer(4);
-        let rData = [new Int16Array(buffer0), new Int16Array(buffer1)];
+        let rData = [new Int16Array(buffer0), new Int16Array(buffer1)];   // 2 * 2 16bit integer array
         
-        rData = data.slice();
-        
-//        rData[0][0] = 0x0001;
-//        rData[0][1] = 0xFFFF;
-//        rData[1][0] = 0xFFFB;
-//        rData[1][1] = 0x0111;
-        
+        rData[0][0] = cData[0];    // Copy data from 1d array to 2d array
+        rData[0][1] = cData[1];
+        rData[1][0] = cData[2];
+        rData[1][1] = cData[3];
         console.log("rData= " + rData[0][0] + ", " + rData[0][1] + ", " + rData[1][0] + ", " + rData[1][1] ); 
         
         displayWaveforms(rData);
