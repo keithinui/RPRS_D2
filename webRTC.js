@@ -83,16 +83,24 @@ var youJoyned = 0;
     });
 
     room.on('data', ({ data, src }) => {
-      let rData = new Int16Array(data);
-      if (rData.length == 20){
+      let cData = new Int16Array(data);
+      if (cData.length == 20){
         // Request Command data 
-        textPR.innerHTML             = rData[0];
-        textRR.innerHTML             = rData[1];
-        statusSpo2.innerHTML         = rData[2];
-        statusBatteryLavel.innerHTML = rData[3];
+        textPR.innerHTML             = cData[0];
+        textRR.innerHTML             = cData[1];
+        statusSpo2.innerHTML         = cData[2];
+        statusBatteryLavel.innerHTML = cData[3];
 
       }else{
         // Waveform data
+        let buffer0 = new ArrayBuffer(4);
+        let buffer1 = new ArrayBuffer(4);
+        let rData = [new Int16Array(buffer0), new Int16Array(buffer1)];
+        
+        let rData = data.slice(0, data.length);
+        
+        console.log("rData= " + rData[0][0] + " "  + rData[0][1] + " " + rData[1][0] + " " + rData[1][1]); 
+        
         displayWaveforms(rData);
       }
     });
