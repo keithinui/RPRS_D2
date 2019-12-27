@@ -35,6 +35,8 @@
         //***************************************************************************
         function displayWaveforms(data) {
 
+            console.log("data[][]= " + data[0][0] + data[0][1] + data[1][0] + data[1][1]);
+		
             for (let m = 0; m < DataCount; ++m) {
 
                 // Display ECG labels
