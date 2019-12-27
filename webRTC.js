@@ -101,9 +101,8 @@ var youJoyned = 0;
         rData[0][1] = cData[1];
         rData[1][0] = cData[2];
         rData[1][1] = cData[3];
-        console.log("rData= " + rData[0][0] + ", " + rData[0][1] + ", " + rData[1][0] + ", " + rData[1][1] ); 
         
-        displayWaveforms(rData);
+        displayWaveforms(rData);    // Draw waveform 
       }
     });
 
