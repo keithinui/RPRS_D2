@@ -85,13 +85,15 @@ var youJoyned = 0;
     room.on('data', ({ data, src }) => {
       let rData = new Int16Array(data);
       if (rData.length == 20){
+        // Request Command data 
         textPR.innerHTML             = rData[0];
         textRR.innerHTML             = rData[1];
         statusSpo2.innerHTML         = rData[2];
         statusBatteryLavel.innerHTML = rData[3];
+
       }else{
-        // Show waveform data
-        displayWaveforms(data);
+        // Waveform data
+        displayWaveforms(rData);
       }
     });
 
