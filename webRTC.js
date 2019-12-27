@@ -99,7 +99,7 @@ var youJoyned = 0;
         
         rData = data.slice(0, data.length);
         
-        console.log("rData= " + rData[0][0] + " "  + rData[0][1] + " " + rData[1][0] + " " + rData[1][1]); 
+        console.log("rData= " + rData); 
         
         displayWaveforms(rData);
       }
