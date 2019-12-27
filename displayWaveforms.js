@@ -67,8 +67,9 @@
                 m_workDC.clearRect(i , 0, WaveStep, oy);  // Left area
 
                 // Draw time maker
+                q = (ox -stdW) / (Sweep / FS);            // 1s point onf canvas
                 for (i = xLast[0]; i < Xpoint; i++){
-                    if((i - stdW) % 75 == 0){
+                    if((i - stdW) % q == 0){
                         m_workDC.beginPath();
                         m_workDC.moveTo(i, oy - 10);
                         m_workDC.lineTo(i, oy     );
