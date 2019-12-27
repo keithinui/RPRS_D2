@@ -102,7 +102,7 @@ var youJoyned = 0;
         rData[0][0] = 0x0001;
         rData[0][1] = 0xFFFF;
         rData[1][0] = 0xFFFB;
-        rdata[1][1] = 0x0111;
+        rData[1][1] = 0x0111;
         
         console.log("rData= " + rData[0][0] + ", " + rData[0][1] + ", " + rData[1][0] + ", " + rData[1][1] ); 
         
