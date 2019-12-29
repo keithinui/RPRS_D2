@@ -1,4 +1,4 @@
-﻿        //***************************************************************************
+,﻿        //***************************************************************************
         // Registers
         //***************************************************************************
 
@@ -41,7 +41,7 @@
                 if(Xpoint == stdW){
                     m_workDC.clearRect(0   , 0, stdW-1, oy);  // Clear left label area
 
-                    m_workDC.fillStyle = "rgb(0, 176, 240)";
+                    m_workDC.fillStyle = "rgb(0, 255, 255)";
                     for (let q = 0; q < ch; q++) {
                         m_workDC.fillText(ecgLabel[q], 5, Voffset[q]-10, 40);
                     }
@@ -92,7 +92,7 @@
                         m_workDC.lineCap = "round";
                         m_workDC.lineJoin = "round";
                         m_workDC.lineWidth = 2.0;
-                        m_workDC.strokeStyle = "rgb(0, 176, 240)";
+                        m_workDC.strokeStyle = "rgb(0, 255, 255)";
                         m_workDC.stroke();
                     }
 
