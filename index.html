@@ -4,61 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fukuda Denshi RPR System</title>
-    <link rel="icon" sizes="192x192" href="favicon.png">
+    <link rel="icon" sizes="192x192" href="fukuda.png">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-      <div class="p2p-media">
 
-        <!-- Video(Remote) -->
-        <div class="remote-streams" id="js-remote-streams"></div>
+      <div class="container0">
+          <!-- Video(Remote) -->
+          <div class="remote-streams" id="js-remote-streams"></div>
 
-        <div class="local-stream">
-          <!-- Title, button, LAbles -->
-          <h1 class="heading">Remote Pulmonary Rehabilitation System</h1>
-          <p class="logo">
-            Fukuda Denshi Co., Ltd.
-          </p>
-          <p class="note">
-            <br>
-            Mode:
-            <a href="#">mesh</a> / <a href="#sfu">sfu</a>
-            <br>
+          <div class="container200">
+              <div class="container210">
 
-            <span id="js-room-mode"></span>:
-            <input type="text" placeholder="Room Name" id="js-room-id" value="001" style="width:100px;">
-            <br>
-            <button class="buttons" id="js-join-trigger">Join</button>
-            <button class="buttons" id="js-leave-trigger">Leave</button>
-          </p>
+                  <div class="patien-information">
+                      <!-- Title, button, LAbles -->
+                      <div class="note">
+                          <br>Mode:<a href="#">mesh</a> / <a href="#sfu">sfu</a>
+                          <span id="js-room-mode"></span>:Room
+                          <input type="text" placeholder="Room Name" id="js-room-id" value="001" style="width:100px;">
 
-          <!-- Video(Local) -->
-          <video id="js-local-stream"></video>
-        </div>
+                          <input type="text" id="js-local-text">
+                          <button id="js-send-trigger"    style="background:''; width:200px">Send Waveforms</button>
+                          <button id="js-send-calTrigger" style="background:''; width:100px">CAL</button>
+                      </div>
 
-        <!-- Paramaters -->
-        <div class="parameters">
-          <c class="colorPR">  <a class="note">PR[bpm] </a><a class="data" id="textPR">-- </a></c>
-          <c class="colorRR">  <a class="note">RR[bpm] </a><a class="data" id="textRR">-- </a></c>
-          <c class="colorSpO2"><a class="note">SpO2[%] </a><a class="data" id="statusSpo2">-- </a></c>
-          <c class="colorOther"><a class="note">Battery[%] </a><a class="note" id="statusBatteryLavel">-- </a></c>
-        </div>
+                      <!-- Messages and button -->
+                      <div>
+                          <pre class="messages" id="js-messages"</pre>
+                      </div>
+                  </div>
 
-        <div id="canvas_wrapper">
-          <canvas id="waveformCanvas"></canvas>
-        </div>
-      </div>
+                  <div class="controls">
+                      <button class="buttons" id="js-join-trigger">Join</button>
+                      <button class="buttons" id="js-leave-trigger">Leave</button>
+                  </div>
 
-      <!-- Messages and button -->
-      <div>
-        <pre class="messages" id="js-messages"</pre>
-      </div>
+                  <div class="local-stream">
+                      <!-- Video(Local) -->
+                      <video id="js-local-stream"></video>
+                  </div>
+              </div>
 
-      <div class="meta">
-        <input type="text" id="js-local-text">
-        <button id="js-send-trigger"    style="background:''; width:250px">Send ECG Waveforms</button>
-        <button id="js-send-calTrigger" style="background:''; width:100px">CAL</button>
-        <p id="js-meta"></p>
+              <div class="container250">
+                  <!-- Paramaters -->
+                  <div class="parameters">
+                      <div class="colorPR">   <a class="note">PR[bpm]    </a><a class="data" id="textPR">-- </a></div>
+                      <div class="colorRR">   <a class="note">RR[bpm]    </a><a class="data" id="textRR">-- </a></div>
+                      <div class="colorSpO2"> <a class="note">SpO2[%]    </a><a class="data" id="statusSpo2">-- </a></div>
+                      <div class="colorOther"><a class="note">Battery[%] </a><a class="note" id="statusBatteryLavel">-- </a></div>
+                  </div>
+
+                  <!-- Trend graphs  -->
+                  <div class="graph01">Trend Graph (PR)</div>
+                  <div class="graph01">Trend Graph (RR)</div>
+                  <div class="graph01">Trend Graph (SpO2)</div>
+
+                  <div id="canvas_wrapper">
+                      <canvas id="waveformCanvas"></canvas>
+                  </div>
+              </div>
+          </div>
       </div>
 
 
