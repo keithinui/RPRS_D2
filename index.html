@@ -17,7 +17,7 @@
               <div class="container210">
 
                   <div class="patien-information">
-                      <!-- Title, button, LAbles -->
+                      <!-- Title, button, Lables -->
                       <div class="note">
                           <br>Mode:<a href="#">mesh</a> / <a href="#sfu">sfu</a>
                           <span id="js-room-mode"></span>  Room:
@@ -26,6 +26,8 @@
                           <input type="text" id="js-local-text">
                           <button id="js-send-trigger"    style="background:''; width:200px">Send Waveforms</button>
                           <button id="js-send-calTrigger" style="background:''; width:100px">CAL</button>
+
+                          <div class="DataBattery"><a class="note">Battery[%] </a><a class="note" id="statusBatteryLavel">-- </a></div>
                       </div>
 
                       <!-- Messages and button -->
@@ -46,18 +48,21 @@
               </div>
 
               <div class="container250">
-                  <!-- Paramaters -->
-                  <div class="parameters">
-                      <div class="colorPR">   <a class="note">PR[bpm]    </a><a class="data" id="textPR">-- </a></div>
-                      <div class="colorRR">   <a class="note">RR[bpm]    </a><a class="data" id="textRR">-- </a></div>
-                      <div class="colorSpO2"> <a class="note">SpO2[%]    </a><a class="data" id="statusSpo2">-- </a></div>
-                      <div class="colorOther"><a class="note">Battery[%] </a><a class="note" id="statusBatteryLavel">-- </a></div>
+                  <!-- Trend graphs  -->
+                  <div class="parameterPR">
+                      <div class="dataPR">   <div class="note">PR[bpm]</div><div class="data" id="textPR">---</div></div>
+                      <div class="graph01">Trend Graph (PR)</div>
                   </div>
 
-                  <!-- Trend graphs  -->
-                  <div class="graph01">Trend Graph (PR)</div>
-                  <div class="graph01">Trend Graph (RR)</div>
-                  <div class="graph01">Trend Graph (SpO2)</div>
+                  <div class="parameterRR">
+                      <div class="dataRR">   <div class="note">RR[bpm]</div><div class="data" id="textRR">--</div></div>
+                      <div class="graph01">Trend Graph (RR)</div>
+                  </div>
+
+                  <div class="parameterSpO2">
+                      <div class="dataSpO2"> <div class="note">SpO2[%]</div><div class="data" id="statusSpo2">--</div></div>
+                      <div class="graph01">Trend Graph (SpO2)</div>
+                  </div>
 
                   <div id="canvas_wrapper">
                       <canvas id="waveformCanvas"></canvas>
