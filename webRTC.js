@@ -139,14 +139,14 @@ var youJoyned = 0;
         m_workDC.clearRect(0, 0, ox, oy);  // Clear all canvas
         $(".p2p-media #canvas_wrapper").height(0);
         sendWaveforms = 0;
-        sendTrigger.innerText = 'Send ECG Waveforms';
+        sendTrigger.innerText = 'Send Waveforms';
         sendTrigger.style = "background:''; width:250px";
       }else{
         // Open the waveform window
         $(".p2p-media #canvas_wrapper").height(oy);
         sendWaveforms = 1;
-        sendTrigger.innerText = 'Stop sending ECG Waveforms';
-        sendTrigger.style = "background:#00F00F; width:250px";
+        sendTrigger.innerText = 'Stop sending datas';
+        sendTrigger.style = "background:#00F00F; width:200px";
         initDisplay = 1;
       }
 
