@@ -90,6 +90,8 @@ var youJoyned = 0;
         textRR.innerHTML             = cData[1];
         statusSpo2.innerHTML         = cData[2];
         statusBatteryLavel.innerHTML = cData[3];
+        
+        console.log("Data number=" + cData[26] + " Status=" + cData[28] + " Checksum=" + cData[29]);
 
       }else{
         // Waveform data
