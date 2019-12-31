@@ -93,8 +93,8 @@ var youJoyned = 0;
 
       }else{
         // Waveform data
-        let buffer0 = new ArrayBuffer(4);
-        let buffer1 = new ArrayBuffer(4);
+        let buffer0 = new ArrayBuffer(8);
+        let buffer1 = new ArrayBuffer(8);
         let rData = [new Int16Array(buffer0), new Int16Array(buffer1)];   // 2 * 2 16bit integer array
         
         rData[0][0] = cData[0];    // Copy data from 1d array to 2d array
