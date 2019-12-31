@@ -84,7 +84,7 @@ var youJoyned = 0;
 
     room.on('data', ({ data, src }) => {
       let cData = new Int16Array(data);
-      if (cData.length == 20){
+      if (cData.length == 30){
         // Request Command data 
         textPR.innerHTML             = cData[0];
         textRR.innerHTML             = cData[1];
