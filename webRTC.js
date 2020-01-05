@@ -137,15 +137,13 @@ var youJoyned = 0;
 
     function onClickSend() {
       if(sendWaveforms == 1){
-        // Clear and close the waveform window
+        // Clear the waveform window and stop sending data
         m_workDC.clearRect(0, 0, ox, oy);  // Clear all canvas
-        $(".p2p-media #canvas_wrapper").height(0);
         sendWaveforms = 0;
         sendTrigger.innerText = 'Send Waveforms';
         sendTrigger.style = "background:''; width:250px";
       }else{
-        // Open the waveform window
-        $(".p2p-media #canvas_wrapper").height(oy);
+        // Send waveforms
         sendWaveforms = 1;
         sendTrigger.innerText = 'Stop sending datas';
         sendTrigger.style = "background:#00F00F; width:200px";
