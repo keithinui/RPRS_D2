@@ -151,7 +151,14 @@ var youJoyned = 0;
       }
 
       // Send sendWaveform request
-      let tmpData = "waveform" + String(sendWaveforms).trim();
+      let tmpData = "waveform" + String(sendWaveforms).trim() + "_";
+      let checksum = 0;
+      for(let n=0; n < 10; n++){
+        checksum += tmpData.charCodeAt(n);
+      }
+      tmpdata = tmpData + checksum.toString(16).substr(-2);
+      console.log("tmpData" + tmpData);
+
       room.send(tmpData);
       
 //      room.send(sendWaveforms);
