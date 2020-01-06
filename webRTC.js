@@ -156,7 +156,9 @@ var youJoyned = 0;
       for(let n=0; n < 10; n++){
         checksum += tmpData.charCodeAt(n);
       }
-      tmpdata = tmpData + checksum.toString(16).substr(-2);
+      checksum = -checksum;
+      let tmpStr = checksum.toString(!6).padStart(4, '0');
+      tmpdata = tmpData + tmpStr.substr(-2);
       console.log("tmpData" + tmpData);
 
       room.send(tmpData);
