@@ -1,4 +1,4 @@
-﻿var textPR = document.getElementById('textPR');
+var textPR = document.getElementById('textPR');
 var textRR = document.getElementById('textRR');
 var sendCal = document.getElementById('js-send-calTrigger');
 
@@ -61,14 +61,6 @@ window.onload = function () {
 
   WaveStep = (ox - stdW) / Sweep;	            // Number of count up step per sample
 
-
-  // Hide Send ECG Waveform Button in patient mode
-  if(applicationMode == 0){
-    const localText = document.getElementById('js-local-text');
-    const sendTrigger = document.getElementById('js-send-trigger');
-    localText.style.display = "none";     // Patient mode (Hide button and text)
-    sendTrigger.style.display = "none";
-  }
 
   // Hide CAL button for all mode
   sendCal.style.display = "none";

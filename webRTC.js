@@ -139,7 +139,9 @@ var youJoyned = 0;     // 0: not  joyend yet,  1: you joyend
 
     // for preparing to close
     if(youJoyned==1){
-       room.close();
+      // Stop sending data before room.close 
+      if(sendWaveforms == 1){ onClickSend(); }
+      room.close();
     }
 
     sendTrigger.addEventListener('click', onClickSend);
