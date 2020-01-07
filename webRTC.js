@@ -69,6 +69,7 @@ var youJoyned = 0;     // 0: not  joyend yet,  1: you joyend
       joinTrigger.style = "background:#00F00F";
       youJoyned = 1;
     });
+    
     room.on('peerJoin', peerId => {
       messages.textContent += `=== ${peerId} joined ===\n`;
     });
@@ -134,14 +135,12 @@ var youJoyned = 0;     // 0: not  joyend yet,  1: you joyend
       });
     });
 
-
+    // for preparing to close
     if(youJoyned==1){
-       youJoyned = 0;
        room.close();
     }
 
     sendTrigger.addEventListener('click', onClickSend);
-//    leaveTrigger.addEventListener('click', () => room.close(), { once: true });
 
     /////////////////////////////////////////////////////////////////////////
     //  Request to send waveforms
