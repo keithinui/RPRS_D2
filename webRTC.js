@@ -1,12 +1,11 @@
-﻿const Peer = window.Peer;
+const Peer = window.Peer;
 var room;
 var peer;
-var youJoyned = 0;
+var youJoyned = 0;     // 0: not  joyend yet,  1: you joyend
 
 (async function main() {
   const localVideo = document.getElementById('js-local-stream');
   const joinTrigger = document.getElementById('js-join-trigger');
-  const leaveTrigger = document.getElementById('js-leave-trigger');
   const remoteVideos = document.getElementById('js-remote-streams');
   const roomId = document.getElementById('js-room-id');
   const roomMode = document.getElementById('js-room-mode');
@@ -37,18 +36,21 @@ var youJoyned = 0;
     })
     .catch(console.error);
 
+  /////////////////////////////////////////////////////////////////////////
   // Render local stream
   localVideo.muted = true;
   localVideo.srcObject = localStream;
   localVideo.playsInline = true;
   await localVideo.play().catch(console.error);
 
+  /////////////////////////////////////////////////////////////////////////
   // eslint-disable-next-line require-atomic-updates
   peer = (window.peer = new Peer({
     key: window.__SKYWAY_KEY__,
     debug: 3,
   }));
 
+  /////////////////////////////////////////////////////////////////////////
   // Register join handler
   joinTrigger.addEventListener('click', () => {
     // Note that you need to ensure the peer has connected to signaling server
@@ -132,9 +134,18 @@ var youJoyned = 0;
       });
     });
 
-    sendTrigger.addEventListener('click', onClickSend);
-    leaveTrigger.addEventListener('click', () => room.close(), { once: true });
 
+    if(youJoyned==1){
+       youJoyned = 0;
+       room.close();
+    }
+
+    sendTrigger.addEventListener('click', onClickSend);
+//    leaveTrigger.addEventListener('click', () => room.close(), { once: true });
+
+    /////////////////////////////////////////////////////////////////////////
+    //  Request to send waveforms
+    /////////////////////////////////////////////////////////////////////////
     function onClickSend() {
       if(sendWaveforms == 1){
         // Stop sending data
@@ -145,7 +156,7 @@ var youJoyned = 0;
         // Clear the waveform window and start sending waveforms
         m_workDC.clearRect(0, 0, ox, oy);  // Clear all canvas
         sendWaveforms = 1;
-        sendTrigger.innerText = 'Stop sending datas';
+        sendTrigger.innerText = 'Stop sending data';
         sendTrigger.style = "background:#00F00F; width:200px";
         initDisplay = 1;
       }
