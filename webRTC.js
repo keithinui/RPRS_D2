@@ -66,6 +66,7 @@ var youJoyned = 0;     // 0: not  joyend yet,  1: you joyend
 
     room.once('open', () => {
       messages.textContent += '=== You joined ===\n';
+      joinTrigger.innerText = "Leave";
       joinTrigger.style = "background:#00F00F";
       youJoyned = 1;
     });
@@ -126,6 +127,7 @@ var youJoyned = 0;     // 0: not  joyend yet,  1: you joyend
     // for closing myself
     room.once('close', () => {
       messages.textContent += '== You left ===\n';
+      joinTrigger.innerText = "Join";
       joinTrigger.style = "background:''";
       youJoyned = 0;
       Array.from(remoteVideos.children).forEach(remoteVideo => {
