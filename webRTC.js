@@ -153,12 +153,16 @@ var youJoyned = 0;
       // Send sendWaveform request
       let tmpData = "waveform" + String(sendWaveforms).trim() + "_";
       let checksum = 0;
+
+      // Make checksum data and convert it in complement
       for(let n=0; n < 10; n++){
         checksum += tmpData.charCodeAt(n);
       }
+      checksum = 65536-checksum;
 
-      let tmpStr = checksum.toString(16).padStart(4, '0');
-      tmpData = tmpData + tmpStr.substr(-2);
+      // Convert checksum data in hex and fix degit and add it in last
+      let tmpStr = checksum.toString(16).padStart(4, '0').substr(-2);
+      tmpData = tmpData + tmpStr.substring(1, 2) + tmpStr.substring(0, 1);
       console.log("tmpData= " + tmpData);
 
       room.send(tmpData);
