@@ -162,7 +162,7 @@ var youJoyned = 0;
 
       // Convert checksum data in hex and fix degit and add it in last
       let tmpStr = checksum.toString(16).padStart(4, '0').substr(-2);
-      tmpData = tmpData + tmpStr.substring(1, 2) + tmpStr.substring(0, 1);
+      tmpData = tmpData + tmpStr.substring(0, 2) + tmpStr.substring(1, 1);
       console.log("tmpData= " + tmpData);
 
       room.send(tmpData);
