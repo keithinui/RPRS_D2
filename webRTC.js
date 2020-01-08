@@ -176,7 +176,7 @@ var youJoyned = 0;     // 0: not  joyend yet,  1: you joyend
 
       // Convert checksum data in hex and fix degit and add it in last
       let tmpStr = checksum.toString(16).padStart(4, '0').substr(-2);
-      tmpData = tmpData + tmpStr.substring(0, 1) + tmpStr.substring(1, 2);  // Command + 1st + 2nd
+      tmpData = tmpData + tmpStr.substring(1, 2) + tmpStr.substring(0, 1);  // Command + 2nd + 1std
       console.log("tmpData= " + tmpData);
 
       room.send(tmpData);
