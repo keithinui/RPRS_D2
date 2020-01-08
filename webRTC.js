@@ -32,7 +32,7 @@ var youJoyned = 0;     // 0: not  joyend yet,  1: you joyend
   const localStream = await navigator.mediaDevices
     .getUserMedia({
       audio: true,
-      video: true,
+      video: { width: {min: 640, ideal: 1280}, height: {min: 480,ideal: 960} },
     })
     .catch(console.error);
 
