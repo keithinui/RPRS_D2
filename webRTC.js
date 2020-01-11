@@ -2,6 +2,10 @@ const Peer = window.Peer;
 var room;
 var peer;
 var youJoyned = 0;     // 0: not  joyend yet,  1: you joyend
+var tBuffer0 = new ArrayBuffer(8);
+var tBuffer1 = new ArrayBuffer(8);
+var tData = [new Int16Array(buffer0), new Int16Array(buffer1)];   // 2 * 2 16bit integer array
+
 
 (async function main() {
   const localVideo = document.getElementById('js-local-stream');
@@ -107,6 +111,8 @@ var youJoyned = 0;     // 0: not  joyend yet,  1: you joyend
         rData[0][1] = cData[1];
         rData[1][0] = cData[2];
         rData[1][1] = cData[3];
+
+        Array.prototype.push.apply(tData, rData);
         
         if(sendWaveforms == 1){
           displayWaveforms(rData);    // Draw waveform
@@ -157,6 +163,16 @@ var youJoyned = 0;     // 0: not  joyend yet,  1: you joyend
         sendWaveforms = 0;
         sendTrigger.innerText = 'Send Waveforms';
         sendTrigger.style = "background:''; width:250px";
+
+        let fileName = "data.txt";
+        let blob = new Blob([tData], {type: "text/plain"});
+        let a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.target = '_blank';
+        a.download = fileName;
+        a.click();
+
+
       }else{
         // Clear the waveform window and start sending waveforms
         m_workDC.clearRect(0, 0, ox, oy);  // Clear all canvas
