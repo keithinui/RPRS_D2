@@ -15,7 +15,6 @@
         var WaveSteps = stdW;
         var WaveStepsPerDot;	            // Number of count up step per sample
         var BufSize = 38;	            // 3s data
-        var NowPoint = 0;
         var dSpeed = 1.0;
         var initDisplay = 1;                // Initialize display  1: On,   0: Off
         var displayResolution = 1;
@@ -36,6 +35,12 @@
         function displayWaveforms(data) {
 
 	    for (let m = 0; m < DataCount; ++m) {
+		// Initialize display parameters
+		if(initDisplay == 1){
+		  initDisplay = 0;
+		  Xpoint = stdW;
+                  WaveSteps = stdW;
+		}
 
                 // Display ECG labels
                 if(Xpoint == stdW){
@@ -106,12 +111,6 @@
                 if (Xpoint + WaveStep > ox) {
                     Xpoint = stdW;
                     //               DisplayLables();
-                }
-
-                // Counts up Data pointer
-                NowPoint++;									// NowPoint means it's ready for data to be written.
-                if (NowPoint >= BufSize) {
-                    NowPoint = 0;
                 }
             }
         }
