@@ -2,8 +2,8 @@ const Peer = window.Peer;
 var room;
 var peer;
 var youJoyned = 0;     // 0: not  joyend yet,  1: you joyend
-var tBuffer0 = new ArrayBuffer(8);
-var tBuffer1 = new ArrayBuffer(8);
+var tBuffer0 = new ArrayBuffer(4);
+var tBuffer1 = new ArrayBuffer(4);
 var tData = [new Int16Array(tBuffer0), new Int16Array(tBuffer1)];   // 2 * 2 16bit integer array
 
 
@@ -103,8 +103,8 @@ var tData = [new Int16Array(tBuffer0), new Int16Array(tBuffer1)];   // 2 * 2 16b
 
       }else{
         // Waveform data
-        let buffer0 = new ArrayBuffer(8);
-        let buffer1 = new ArrayBuffer(8);
+        let buffer0 = new ArrayBuffer(4);
+        let buffer1 = new ArrayBuffer(4);
         let rData = [new Int16Array(buffer0), new Int16Array(buffer1)];   // 2 * 2 16bit integer array
         
         rData[0][0] = cData[0];    // Copy data from 1d array to 2d array
