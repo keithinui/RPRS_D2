@@ -108,7 +108,9 @@ var youJoyned = 0;     // 0: not  joyend yet,  1: you joyend
         rData[1][0] = cData[2];
         rData[1][1] = cData[3];
         
-        displayWaveforms(rData);    // Draw waveform 
+        if(sendWaveforms == 1){
+          displayWaveforms(rData);    // Draw waveform
+        }
       }
     });
 
@@ -151,7 +153,7 @@ var youJoyned = 0;     // 0: not  joyend yet,  1: you joyend
     /////////////////////////////////////////////////////////////////////////
     function onClickSend() {
       if(sendWaveforms == 1){
-        // Stop sending data
+        // Stop sending data and prepare display to send
         sendWaveforms = 0;
         sendTrigger.innerText = 'Send Waveforms';
         sendTrigger.style = "background:''; width:250px";
