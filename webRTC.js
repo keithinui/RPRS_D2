@@ -2,8 +2,8 @@ const Peer = window.Peer;
 var room;
 var peer;
 var youJoyned = 0;     // 0: not  joyend yet,  1: you joyend
-var tBuffer0 = new ArrayBuffer(8);
-var tBuffer1 = new ArrayBuffer(8);
+var tBuffer0 = new ArrayBuffer(90000);
+var tBuffer1 = new ArrayBuffer(90000);
 var tData = [new Int16Array(tBuffer0), new Int16Array(tBuffer1)];   // 2 * 2 16bit integer array
 
 
