@@ -167,7 +167,7 @@ var waveLogData = [];  // Log data of waveforms
 
         // Save waveform log data on Download folder
         let fileName = "data.txt";
-        let blob = new Blob([tData], {type: "text/plain"});
+        let blob = new Blob([waveLogData], {type: "text/plain"});
         let a = document.createElement("a");
         a.href = URL.createObjectURL(blob);
         a.target = '_blank';
