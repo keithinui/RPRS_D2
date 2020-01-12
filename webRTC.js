@@ -36,7 +36,7 @@ var tData = [new Int16Array(tBuffer0), new Int16Array(tBuffer1)];   // 2 * 2 16b
   const localStream = await navigator.mediaDevices
     .getUserMedia({
       audio: true,
-      video: { width: {min: 640, ideal: 1280}, height: {min: 480,ideal: 960} },
+      video: true,
     })
     .catch(console.error);
 
