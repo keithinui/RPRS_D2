@@ -2,9 +2,7 @@ const Peer = window.Peer;
 var room;
 var peer;
 var youJoyned = 0;     // 0: not  joyend yet,  1: you joyend
-var tBuffer0 = new ArrayBuffer(4);
-var tBuffer1 = new ArrayBuffer(4);
-var tData = [new Int16Array(tBuffer0), new Int16Array(tBuffer1)];   // 2 * 2 16bit integer array
+var waveLogData = [];  // Log data of waveforms 
 
 
 (async function main() {
@@ -112,7 +110,10 @@ var tData = [new Int16Array(tBuffer0), new Int16Array(tBuffer1)];   // 2 * 2 16b
         rData[1][0] = cData[2];
         rData[1][1] = cData[3];
 
-        Array.prototype.push.apply(tData, rData);
+        // Waveform log data to investigate communication quality
+        for(let n=0; n<10; n++){
+          waveLogData.push(cData[n]);
+        }
         
         if(sendWaveforms == 1){
           displayWaveforms(rData);    // Draw waveform
@@ -164,6 +165,7 @@ var tData = [new Int16Array(tBuffer0), new Int16Array(tBuffer1)];   // 2 * 2 16b
         sendTrigger.innerText = 'Send Waveforms';
         sendTrigger.style = "background:''; width:250px";
 
+        // Save waveform log data on Download folder
         let fileName = "data.txt";
         let blob = new Blob([tData], {type: "text/plain"});
         let a = document.createElement("a");
