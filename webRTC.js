@@ -111,15 +111,12 @@ var lastTime;
         rData[1][1] = cData[3];
 
         // Waveform log data to investigate communication quality
-        for(let n=0; n<4; n++){
+        for(let n=0; n<10; n++){
           waveLogData.push(cData[n]);
         }
         let currentTime = new Date();
         waveLogData.push(currentTime.getTime() - lastTime.getTime() );    // Interval time in ms
         lastTime = currentTime;
-        for(let n=5; n<10; n++){
-          waveLogData.push(cData[n]);
-        }
 
         // Display waveforms
         if(sendWaveforms == 1){
