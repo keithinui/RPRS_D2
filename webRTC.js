@@ -3,7 +3,7 @@ var room;
 var peer;
 var youJoyned = 0;     // 0: not  joyend yet,  1: you joyend
 var waveLogData = [];  // Log data of waveforms 
-
+var lastTime;
 
 (async function main() {
   const localVideo = document.getElementById('js-local-stream');
@@ -111,10 +111,17 @@ var waveLogData = [];  // Log data of waveforms
         rData[1][1] = cData[3];
 
         // Waveform log data to investigate communication quality
-        for(let n=0; n<10; n++){
+        for(let n=0; n<4; n++){
           waveLogData.push(cData[n]);
         }
-        
+        let currentTime = new Date();
+        waveLogData.push(currentTime.getTime() - lastTime.getTime() );    // Interval time in ms
+        lastTime = currentTime;
+        for(let n=5; n<10; n++){
+          waveLogData.push(cData[n]);
+        }
+
+        // Display waveforms
         if(sendWaveforms == 1){
           displayWaveforms(rData);    // Draw waveform
         }
@@ -200,6 +207,8 @@ var waveLogData = [];  // Log data of waveforms
       console.log("tmpData= " + tmpData);
 
       room.send(tmpData);
+      
+      lastTime = new Date();    // Set current time
     }
 
   });
