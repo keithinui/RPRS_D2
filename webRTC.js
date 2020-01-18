@@ -163,7 +163,7 @@ var lastTime;
         // Stop sending data and prepare display to send
         sendWaveforms = 0;
         sendTrigger.innerText = 'Send Waveforms';
-        sendTrigger.style = "background:''; width:250px";
+        sendTrigger.style = "background:''; width:200px";
 
         // Save waveform log data on Download folder in debug mode
         if(debugMode == 1){
