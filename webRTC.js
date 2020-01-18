@@ -202,14 +202,12 @@ var lastTime;
 
       // Convert checksum data in hex and fix degit and add it in last
       let tmpStr = checksum.toString(16).padStart(4, '0').substr(-2);
-      tmpData = tmpData + tmpStr.substring(1, 2) + tmpStr.substring(0, 1);  // Command + 2nd + 1std
+      tmpData = tmpData + tmpStr.substring(1, 2) + tmpStr.substring(0, 1);  // Command + 2nd + 1st degit checksum
       console.log("tmpData= " + tmpData);
 
-      room.send(tmpData);
-      
-      lastTime = new Date();    // Set current time
+      room.send(tmpData);       // Send comand and checksum
+      lastTime = new Date();    // Set current time for evaluation
     }
-
   });
 
   peer.on('error', console.error);
