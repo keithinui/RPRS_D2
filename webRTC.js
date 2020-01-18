@@ -1,6 +1,4 @@
 const Peer = window.Peer;
-const joinTrigger = document.getElementById('js-join-trigger');
-const jtDisplayOriginal = joinTrigger.display;
 var room;
 var peer;
 var youJoyned = 0;     // 0: not  joyend yet,  1: you joyend
@@ -17,7 +15,8 @@ var lastTime;
   const messages = document.getElementById('js-messages');
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
-
+  const joinTrigger = document.getElementById('js-join-trigger');
+  const jtDisplayOriginal = joinTrigger.style.display;
 
   meta.innerText = `
     UA: ${navigator.userAgent}
