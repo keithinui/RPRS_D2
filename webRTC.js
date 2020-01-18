@@ -169,15 +169,16 @@ var lastTime;
         sendTrigger.innerText = 'Send Waveforms';
         sendTrigger.style = "background:''; width:250px";
 
-        // Save waveform log data on Download folder
-        let fileName = "data.txt";
-        let blob = new Blob([waveLogData], {type: "text/plain"});
-        let a = document.createElement("a");
-        a.href = URL.createObjectURL(blob);
-        a.target = '_blank';
-        a.download = fileName;
-        a.click();
-
+        // Save waveform log data on Download folder in debug mode
+        if(debugMode == 1){
+          let fileName = "data.txt";
+          let blob = new Blob([waveLogData], {type: "text/plain"});
+          let a = document.createElement("a");
+          a.href = URL.createObjectURL(blob);
+          a.target = '_blank';
+          a.download = fileName;
+          a.click();
+        }
 
       }else{
         // Clear the waveform window and start sending waveforms
