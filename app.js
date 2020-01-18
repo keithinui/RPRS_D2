@@ -1,6 +1,7 @@
 var textPR = document.getElementById('textPR');
 var textRR = document.getElementById('textRR');
 var sendCal = document.getElementById('js-send-calTrigger');
+var leaveTrigger = document.getElementById('js-leave-trigger');
 
 var heartRateData;                // 0. Heart rate data
 var respRateData;                 // 1. Resp. rate data
@@ -10,6 +11,7 @@ var dataSendWaveforms = [[]];     // Waveform Data to send (8ch x DataCount[ms])
 var timer1 =0;                    // Interval timer
 var sendWaveforms = 0;            // 0: Send waveforms Off,      1: On
 var calCommand = 0;               // 0: Cal Off,                 1: On
+var ltDisplayOriginal ;
 
 
 // ********************************************************************
@@ -61,6 +63,10 @@ window.onload = function () {
 
   WaveStep = (ox - stdW) / Sweep;	            // Number of count up step per sample
 
+  // Hide Leave button
+  leaveTrigger.style = "background:#00F00F";
+  ltDisplayOriginal  = leaveTrigger.style.display;
+  leaveTrigger.style.display = "none";
 
   // Hide CAL button for all mode
   sendCal.style.display = "none";

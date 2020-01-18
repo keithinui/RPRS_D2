@@ -16,6 +16,7 @@ var lastTime;
   const messages = document.getElementById('js-messages');
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
+  const jtDisplayOriginal = joinTrigger.display;
 
 
   meta.innerText = `
@@ -68,8 +69,10 @@ var lastTime;
 
     room.once('open', () => {
       messages.textContent += '=== You joined ===\n';
-      joinTrigger.innerText = "Leave";
-      joinTrigger.style = "background:#00F00F";
+//      joinTrigger.innerText = "Leave";
+//      joinTrigger.style = "background:#00F00F";
+        joinTrigger.style.display = "none";
+        leaveTrigger.style.display = ltDisplayOriginal;
       youJoyned = 1;
     });
     
@@ -140,9 +143,12 @@ var lastTime;
     // for closing myself
     room.once('close', () => {
       messages.textContent += '== You left ===\n';
-      joinTrigger.innerText = "Join";
-      joinTrigger.style = "background:''";
-      youJoyned = 0;
+//      joinTrigger.innerText = "Join";
+//      joinTrigger.style = "background:''";
+      leaveTrigger.style.display = "none";
+      joinTrigger.style.display = jtDisplayOriginal;
+
+      youJoyned = 0;t
       Array.from(remoteVideos.children).forEach(remoteVideo => {
         remoteVideo.srcObject.getTracks().forEach(track => track.stop());
         remoteVideo.srcObject = null;
@@ -151,14 +157,16 @@ var lastTime;
     });
 
     // for preparing to close
-    if(youJoyned==1){
-      youJoyned = 0;      // To avoid occurring twice of close event
+//    if(youJoyned==1){
+//      youJoyned = 0;      // To avoid occurring twice of close event
       // Stop sending data before room.close
-      if(sendWaveforms == 1){ onClickSend(); }
-      room.close();
-    }
+//      if(sendWaveforms == 1){ onClickSend(); }
+//      room.close();
+//    }
 
     sendTrigger.addEventListener('click', onClickSend);
+    leaveTrigger.addEventListener('click', () => room.close(), { once: true });
+
 
     /////////////////////////////////////////////////////////////////////////
     //  Request to send waveforms
