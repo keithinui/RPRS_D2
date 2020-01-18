@@ -66,7 +66,7 @@ var lastTime;
     });
 
     room.once('open', () => {
-      messages.textContent += '=== You joined ===\n';
+      messages.textContent = '=== You joined ===\n';
       joinTrigger.style.display = "none";
       leaveTrigger.style.display = ltDisplayOriginal;
     });
