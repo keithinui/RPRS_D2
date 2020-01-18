@@ -152,8 +152,8 @@ var lastTime;
 
     // for preparing to close
     if(youJoyned==1){
-//      youJoyned = 0;
-      // Stop sending data before room.close 
+      youJoyned = 0;      // To avoid occurring twice of close event
+      // Stop sending data before room.close
       if(sendWaveforms == 1){ onClickSend(); }
       room.close();
     }
