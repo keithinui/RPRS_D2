@@ -152,9 +152,10 @@ var lastTime;
 
     // for preparing to close
     if(youJoyned==1){
+      youJoyned = 0;
       // Stop sending data before room.close 
       if(sendWaveforms == 1){ onClickSend(); }
-//      room.close();
+      room.close();
     }
 
     sendTrigger.addEventListener('click', onClickSend);
@@ -170,7 +171,7 @@ var lastTime;
         sendTrigger.style = "background:''; width:250px";
 
         // Save waveform log data on Download folder in debug mode
-//        if(debugMode == 1){
+        if(debugMode == 1){
           let fileName = "data.txt";
           let blob = new Blob([waveLogData], {type: "text/plain"});
           let a = document.createElement("a");
@@ -178,7 +179,7 @@ var lastTime;
           a.target = '_blank';
           a.download = fileName;
           a.click();
-//        }
+        }
 
       }else{
         // Clear the waveform window and start sending waveforms
