@@ -148,7 +148,7 @@ var lastTime;
       leaveTrigger.style.display = "none";
       joinTrigger.style.display = jtDisplayOriginal;
 
-      youJoyned = 0;t
+      youJoyned = 0;
       Array.from(remoteVideos.children).forEach(remoteVideo => {
         remoteVideo.srcObject.getTracks().forEach(track => track.stop());
         remoteVideo.srcObject = null;
