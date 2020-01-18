@@ -1,4 +1,6 @@
 const Peer = window.Peer;
+const joinTrigger = document.getElementById('js-join-trigger');
+const jtDisplayOriginal = joinTrigger.display;
 var room;
 var peer;
 var youJoyned = 0;     // 0: not  joyend yet,  1: you joyend
@@ -7,7 +9,6 @@ var lastTime;
 
 (async function main() {
   const localVideo = document.getElementById('js-local-stream');
-  const joinTrigger = document.getElementById('js-join-trigger');
   const remoteVideos = document.getElementById('js-remote-streams');
   const roomId = document.getElementById('js-room-id');
   const roomMode = document.getElementById('js-room-mode');
@@ -16,7 +17,6 @@ var lastTime;
   const messages = document.getElementById('js-messages');
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
-  const jtDisplayOriginal = joinTrigger.display;
 
 
   meta.innerText = `
