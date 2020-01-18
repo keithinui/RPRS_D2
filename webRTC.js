@@ -154,7 +154,7 @@ var lastTime;
     if(youJoyned==1){
       // Stop sending data before room.close 
       if(sendWaveforms == 1){ onClickSend(); }
-      room.close();
+//      room.close();
     }
 
     sendTrigger.addEventListener('click', onClickSend);
