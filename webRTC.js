@@ -174,6 +174,7 @@ var lastTime;
           a.target = '_blank';
           a.download = fileName;
           a.click();
+          waveLogData.length = 0;   // Clear log data
         }
 
       }else{
