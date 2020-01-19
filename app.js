@@ -1,4 +1,4 @@
-var textPR = document.getElementById('textPR');
+﻿var textPR = document.getElementById('textPR');
 var textRR = document.getElementById('textRR');
 var sendCal = document.getElementById('js-send-calTrigger');
 var leaveTrigger = document.getElementById('js-leave-trigger');
@@ -12,33 +12,17 @@ var timer1 =0;                    // Interval timer
 var sendWaveforms = 0;            // 0: Send waveforms Off,      1: On
 var calCommand = 0;               // 0: Cal Off,                 1: On
 var ltDisplayOriginal ;
+var startTime = 0;                // Rehabilitation time
 
 
 // ********************************************************************
-//  Send ECG Data by each interval time
+//  Rihabilitation Timer
 // ********************************************************************
-function transmitData() {
-  if(connectedBLE == 1 && youJoyned == 1 && peer.open){
-
-    console.log("transmitData event!!");
-
-    // ECG or Cal data to be sent
-    if(calCommand == 0){
-      dataSendWaveforms = ecgData.slice(NowPoint, NowPoint + DataCount);
-    }else{
-      dataSendWaveforms = calData.slice(0, 199);
-      calCommand = 0;
-    }
-    NowPoint+=DataCount;
-    if (NowPoint >= BufSize) {
-      NowPoint = 0;
-    }
-    room.send(dataSendWaveforms);
-    
-    //SpO2 data increment for test purpose
-    spo2 = spo2 >= 99 ? 80 : spo2 + 1;
-  }
+function onOneSecRihaTimer() {
+    startTime++;
+    rihabilitationTime.innerHTML = startTime.format('mm:ss');
 }
+
 
 // ********************************************************************
 //  Initial setup

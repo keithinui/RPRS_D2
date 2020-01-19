@@ -1,4 +1,4 @@
-const Peer = window.Peer;
+﻿const Peer = window.Peer;
 var room;
 var peer;
 var waveLogData = [];  // Log data of waveforms 
@@ -166,6 +166,9 @@ var lastTime;
         sendTrigger.innerText = 'Send Waveforms';
         sendTrigger.style = "background:''; width:200px";
 
+        // Stop Rehabilitation time
+        clearInterval(timer1);
+
         // Save waveform log data on Download folder in debug mode
         if(debugMode == 1){
           let fileName = "data.txt";
@@ -185,6 +188,10 @@ var lastTime;
         sendTrigger.innerText = 'Stop sending data';
         sendTrigger.style = "background:#00F00F; width:200px";
         initDisplay = 1;
+
+        // Start Rehabilitation timer
+        timer1 = setInterval("onOneSecRihaTimer()", 1000);
+        startTime
       }
 
       // Send sendWaveform request
@@ -202,8 +209,8 @@ var lastTime;
       tmpData = tmpData + tmpStr.substring(1, 2) + tmpStr.substring(0, 1);  // Command + 2nd + 1st degit checksum
       console.log("tmpData= " + tmpData);
 
-      room.send(tmpData);       // Send comand and checksum
-      lastTime = Date.now();    // Set current time for evaluation
+      room.send(tmpData);        // Send comand and checksum
+      lastTime = Date.now();     // Set current time for evaluation
     }
   });
 
