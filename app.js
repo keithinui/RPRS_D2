@@ -21,7 +21,7 @@ var startTime = 0;                // Rehabilitation time
 function onOneSecRihaTimer() {
     startTime++;
     let mm = (Math.floor(startTime/60)).toString().padStart(2, '0');
-    let ss = (startTime % 60).toString().padStart(2, '0');(
+    let ss = (startTime % 60).toString().padStart(2, '0');
     rihabilitationTime.innerHTML = mm + ":" + ss; 
 }
 
