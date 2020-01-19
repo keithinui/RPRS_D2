@@ -112,8 +112,8 @@ var lastTime;
         for(let n=0; n<10; n++){
           waveLogData.push(cData[n]);
         }
-        let currentTime = new Date();
-        waveLogData.push(currentTime.getTime() - lastTime.getTime() );    // Interval time in ms
+        let currentTime = Date.now();
+        waveLogData.push(currentTime - lastTime);    // Interval time in ms
         lastTime = currentTime;
 
         // Display waveforms
@@ -202,7 +202,7 @@ var lastTime;
       console.log("tmpData= " + tmpData);
 
       room.send(tmpData);       // Send comand and checksum
-      lastTime = new Date();    // Set current time for evaluation
+      lastTime = Date.now();    // Set current time for evaluation
     }
   });
 
