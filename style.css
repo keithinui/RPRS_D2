@@ -20,6 +20,13 @@ video {
   text-align: center;
 }
 
+.note2 {
+  font-size: 2vw;
+  font-family: "arial";
+  text-align: center;
+  font-weight: bold;
+}
+
 .data {
   font-size: 5vw;
   font-family: "arial";
