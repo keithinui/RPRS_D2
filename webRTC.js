@@ -151,7 +151,7 @@ var lastTime;
       });
     });
 
-    sendTrigger.addEventListener('click', onClickSend, { once: true });
+    sendTrigger.addEventListener('click', onClickSend);
     leaveTrigger.addEventListener('click', () => room.close(), { once: true });
 
 
