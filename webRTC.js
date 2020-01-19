@@ -191,7 +191,7 @@ var lastTime;
 
         // Start Rehabilitation timer
         timer1 = setInterval("onOneSecRihaTimer()", 1000);
-        startTime
+        startTime = 0;
       }
 
       // Send sendWaveform request
