@@ -137,6 +137,7 @@ var lastTime;
 
     // for closing myself
     room.once('close', () => {
+      sendTrigger.removeEventListener('click', onClickSend);
       messages.textContent += '== You left ===\n';
       leaveTrigger.style.display = "none";
       joinTrigger.style.display = jtDisplayOriginal;
